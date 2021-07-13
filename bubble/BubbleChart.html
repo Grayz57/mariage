@@ -1,0 +1,96 @@
+{{ block scripts }}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script>
+    Highcharts.chart('container', {
+
+        chart: {
+            type: 'bubble',
+            plotBorderWidth: 1,
+            zoomType: 'xy',
+        },
+
+        credits: {
+            enabled: false,
+        },
+
+        title: {
+            text: js_vars.bubble_chart_title
+        },
+
+        xAxis: {
+            gridLineWidth: 1,
+            accessibility: {
+                rangeDescription: 'Range: 0 to 100.'
+            }
+        },
+
+        yAxis: {
+            startOnTick: false,
+            endOnTick: false,
+            accessibility: {
+                rangeDescription: 'Range: 0 to 100.'
+            }
+        },
+
+        series: [{
+            data: js_vars.bubble_chart_series_1,
+            marker: {
+                fillColor: {
+                    radialGradient: {cx: 0.4, cy: 0.3, r: 0.7},
+                    stops: [
+                        [0, 'rgba(255,255,255,0.5)'],
+                        [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')]
+                    ]
+                }
+            },
+            animation: false
+        }, {
+            data: js_vars.bubble_chart_series_2,
+            marker: {
+                fillColor: {
+                    radialGradient: {cx: 0.4, cy: 0.3, r: 0.7},
+                    stops: [
+                        [0, 'rgba(255,255,255,0.5)'],
+                        [1, Highcharts.color(Highcharts.getOptions().colors[1]).setOpacity(0.5).get('rgba')]
+                    ]
+                }
+            },
+            animation: false
+        }]
+
+    });
+</script>
+
+{{ endblock }}
+
+{{ block styles }}
+<style>
+    #container {
+        height: 400px;
+    }
+
+    .highcharts-figure {
+        min-width: 310px;
+        max-width: 800px;
+        margin: 1em auto;
+    }
+</style>
+{{ endblock }}
+
+{{ block title }}
+    Bubble Chart
+{{ endblock }}
+{{ block content }}
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Chart description
+    </p>
+</figure>
+
+{{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,25 @@
+
+{{ block styles }}
+    <style>
+        .col-form-label {
+            display: none;
+        }
+    </style>
+{{ endblock }}
+
+{{ block title }}
+{{ endblock }}
+
+{{ block content }}
+
+    <p>
+        Q{{ subsession.round_number }}: What would you prefer? Drawing a ball from urn A with unknown composition, i.e.,
+        you do not know the probability of drawing a {{ ball }} ball or drawing a ball from urn B in which there are
+        {{ q.0 }} {{ ball }} balls and {{ q.1 }} {{ other_ball }} balls, i.e., there is a {{ q.0 }}% chance of
+        drawing a {{ ball }} ball? Remember, you win if you draw a {{ ball }} ball.
+    </p>
+
+    {{ formfields }}
+
+    {{ next_button }}
+{{ endblock }}
