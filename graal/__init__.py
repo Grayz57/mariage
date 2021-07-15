@@ -16,21 +16,25 @@ class Constants(BaseConstants):
     num_rounds = 1
     num_balls = 100
     prize = cu(100)
+    win = cu(20)
 
     questions = [
         (33, 33, 34),
         (10,10,20),
-        (50,20,30)
+        (50,20,30),
+    ]
+
+    aquestions = [
+        (0, 10, 20, 50, 30, 70),
+        (0, 100, 20, 60, 50, 100),
+        (30, 40, 30, 50, 70, 80)
     ]
 
     num_rounds = len(questions)
 
 
 
-    qs_radio = [f'q{m + 1}' for m in range(10, 20)]
-    choices_radio = list(range(1, 8))
 
-    qs_buttons = [f'q{o + 1}' for o in range(20, 23)]
 
     qs_range_inputs = [f'q{p + 1}' for p in range(23, 25)]
 
@@ -56,16 +60,9 @@ class Player(BasePlayer):
         choices=[('white', 'White'), ('black', 'Black'), ('yellow', 'Yellow')], widget=widgets.RadioSelect
     )
 
-    for q in Constants.qs_radio:
-        locals()[q] = models.IntegerField(
-            choices=Constants.choices_radio,
-            widget=widgets.RadioSelect,
-            blank=True
-        )
-    del q
 
     radio_list_decision = models.IntegerField(initial=0)
-
+    p_amb = models.IntegerField(initial=0)
 
 # PAGES
 class ChooseBall(Page):
@@ -108,4 +105,32 @@ class RadioList(Page):
         q = Constants.questions[player.round_number - 1]
         return dict(ball=ball, other_ball=other_ball, second_ball=second_ball, q=q)
 
-page_sequence = [ChooseBall, RadioList]
+class Apa(Page):
+    form_model = 'player'
+    form_fields = ['p_amb']
+
+    @staticmethod
+    def vars_for_template(player: Player):
+        curr_round = player.round_number
+        ball = player.participant.vars['ball']
+        other_ball = 'j'
+        if ball == 'white':
+            other_ball = 'black'
+        elif ball == 'yellow':
+            other_ball ='black'
+        else:
+            other_ball ='white'
+
+        second_ball = 'yellow'
+
+        if ball == 'white':
+            second_ball = 'yellow'
+        elif ball == 'black':
+            second_ball = 'yellow'
+        else:
+            second_ball = 'white'
+
+        q = Constants.aquestions[player.round_number - 1]
+        return dict(ball=ball, other_ball=other_ball, second_ball=second_ball, q=q)
+
+page_sequence = [ChooseBall,RadioList, Apa]
