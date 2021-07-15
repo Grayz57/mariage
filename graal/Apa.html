@@ -1,0 +1,118 @@
+{{ block scripts }}
+    <script>
+        $(function () {
+            $('input[type=radio]').on('change', function () {
+                let clickedRadio = this,
+                    afterClickedRadio = false;
+
+                let radios = document.querySelectorAll('input[type=radio]');
+                for (let i = 0; i < radios.length; ++i) {
+                    let radio = radios[i];
+                    if (radio === clickedRadio) {
+                        afterClickedRadio = true;
+                        continue;
+                    }
+                    if (!afterClickedRadio && clickedRadio.value === 'left' && radio.value === 'left') {
+                        radio.checked = true;
+                    }
+                    if (afterClickedRadio && clickedRadio.value === 'right' && radio.value === 'right') {
+                        radio.checked = true;
+                    }
+                }
+            });
+
+            $('.otree-btn-next').on('click', function (e) {
+                let form = $('#form')[0];
+                if (form.checkValidity()) {
+                    e.preventDefault();
+                    let radios = document.querySelectorAll('input[type=radio]'),
+                    decision = document.getElementById('id_radio_list_decision');
+
+                    for (let i = 0; i < radios.length; ++i) {
+                        let radio = radios[i];
+                        if (radio.value === 'right' && radio.checked) {
+                            decision.value = parseInt(radio.name);
+                            break;
+                        }
+                    }
+                    form.submit();
+                }
+            });
+        });
+    </script>
+{{ endblock }}
+
+{{ block styles }}
+    <style>
+        .otree-title {
+            text-align: center;
+        }
+        .table th {
+            font-weight: normal;
+        }
+        .otree-btn-next {
+            display: inherit;
+            margin: 2rem auto;
+        }
+        .background-black {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 0.2rem;
+        }
+    </style>
+{{ endblock }}
+
+{{ block title }}
+    Decision
+    <hr>
+{{ endblock }}
+{{ block content }}
+
+    <table class="table table-hover text-center">
+        <thead>
+            <tr>
+                <th>
+                    <div class="background-black">Option 1</div>
+                    Urns here
+                </th>
+                <th>1</th>
+                <th>2</th>
+                <th>
+                    <div class="background-black">Option 2</div>
+                    You win X euros with a probability of
+                </th>
+            </tr>
+        </thead>
+        {{ for choice in Constants.radio_list }}
+            {{if forloop.counter == 1}}
+                <tr>
+                    <td rowspan="21">
+                        <p>
+                            What would you prefer? Drawing a ball from an urn in which there are between
+        [{{ q.0 }}; {{q.1}}]  {{ ball }} balls, between [{{ q.2 }}; {{q.3}}] {{ other_ball }} and between [{{ q.4 }}; {{q.5}}]  {{second_ball}} balls, i.e., there is a {{ q.0 }}% chance of
+        drawing a {{ ball }} ball? Remember, you win {{Constants.win}}if you draw a {{ ball }} ball, or you prefere to win {{Constants.win}} with a certain probability.
+    </p>
+                    </td>
+                </tr>
+            {{ endif }}
+            <tr>
+
+                <td class="text-center">
+                    <input type="radio" class="form-check-input" name="{{ choice.0 }}" value="left" required>
+                </td>
+                <td class="text-center">
+                    <input type="radio" class="form-check-input" name="{{ choice.0 }}" value="right" required>
+                </td>
+                <td class="text-center">
+                    {{ choice.1 }}%
+                </td>
+            </tr>
+        {{ endfor }}
+    </table>
+
+    {{ formfield_errors 'p_amb' }}
+    <input type="hidden" name="p_amb" id="id_radio_list_decision">
+
+    {{ next_button }}
+
+{{ endblock }}
