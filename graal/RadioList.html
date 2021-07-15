@@ -88,10 +88,9 @@
                 <tr>
                     <td rowspan="21">
                         <p>
-        Q{{ subsession.round_number }}: What would you prefer? Drawing a ball from urn A with unknown composition, i.e.,
-        you do not know the probability of drawing a {{ ball }} ball or drawing a ball from urn B in which there are
+        Q{{ subsession.round_number }}: What would you prefer? Drawing a ball from an urn in which there are
         {{ q.0 }} {{ ball }} balls and {{ q.1 }} {{ other_ball }} and {{q.2}} {{second_ball}} balls, i.e., there is a {{ q.0 }}% chance of
-        drawing a {{ ball }} ball? Remember, you win if you draw a {{ ball }} ball.
+        drawing a {{ ball }} ball? Remember, you win {{Constants.win}}if you draw a {{ ball }} ball, or you prefere to win {{Constants.win}} with a certain probability.
     </p>
                     </td>
                 </tr>
