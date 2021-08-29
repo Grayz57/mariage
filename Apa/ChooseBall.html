@@ -1,0 +1,21 @@
+{{ block title }}
+{{ endblock }}
+
+{{ block content }}
+
+    <p>
+        Please now imagine the following situation: You can choose between drawing a ball from a urn and an amount with a certain prob. Urn A contains {{ Constants.num_balls }} balls, some are white, some are yellow and some are black. However, you don’t
+        know how many balls are white and how many balls are black. Any combination is possible. There might be from 0
+        to {{ Constants.num_balls }} white balls, with the remaining balls being black or yellow. Put differently, you do not know
+        the probability of drawing a white, yellow or a black ball. Urn B contains {{ Constants.num_balls }} balls as well, but
+        you know the exact number of white and black balls in this urn. In other words, you know the exact probability
+        of drawing a white or a black ball. Now choose a color, either white black or yellow. Suppose you
+        win {{ Constants.prize|cu }} if you draw a ball of the color you have selected. If the ball is of the other
+        color, you win nothing.
+    </p>
+
+    {{ formfields }}
+
+    {{ next_button }}
+
+{{ endblock }}
