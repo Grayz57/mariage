@@ -2,56 +2,28 @@ from os import environ
 
 SESSION_CONFIGS = [
 dict(
-         name='Graal',
-         app_sequence=['graal'],
-         num_demo_participants=1,
-     ),
-dict(
-         name='Urn',
-         app_sequence=['ellsberg'],
-         num_demo_participants=1,
-     ),
-dict(
-         name='Radio',
-         app_sequence=['fields_custom_display'],
-         num_demo_participants=1,
-     ),
-dict(
-         name='bubble',
-         app_sequence=['bubble'],
-         num_demo_participants=1,
-     ),
-
-     dict(
-         name='dictator',
-         app_sequence=['dictator'],
-         num_demo_participants=4,
-     ),
-dict(
-         name='TrustGame',
-         app_sequence=['my_trust'],
+         name='marriageze',
+         app_sequence=['marriage'],
          num_demo_participants=2,
      ),
-
 dict(
-         name='Survey',
-         app_sequence=['my_simple_survey'],
-         num_demo_participants=3,
-     ),
-dict(
-         name='Public_Goods',
-         app_sequence=['my_public_goods'],
-         num_demo_participants=3,
-     ),
-dict(
-         name='Dictatorship',
-         app_sequence=['dictatorship'],
+         name='test',
+         app_sequence=['testING'],
          num_demo_participants=2,
      ),
-
+    dict(
+         name='arisk',
+         app_sequence=['arisk'],
+         num_demo_participants=2,
+     ),
 dict(
-         name='Live_pages_basic',
-         app_sequence=['live_pages_basic'],
+         name='acasebased',
+         app_sequence=['acasebased'],
+         num_demo_participants=2,
+     ),
+dict(
+         name='aambiguity',
+         app_sequence=['aambiguity'],
          num_demo_participants=2,
      ),
 ]
@@ -82,4 +54,4 @@ ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
 DEMO_PAGE_INTRO_HTML = """ """
 
-SECRET_KEY = '4244626231335'
+SECRET_KEY = '1424317773891'
