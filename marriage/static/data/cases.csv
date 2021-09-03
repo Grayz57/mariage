@@ -1,0 +1,39 @@
+﻿Decision,Cour,TGI,Age créancier,Revenus créanciers,Age débiteur,Revenus débiteur,Durée du mariage,Montant de la PC,Taux de correspondance,Date,case_id
+Condamnation,Aix en provence,Toulon,45,27624,45,47000,19,35000,95,17/03/2010,955
+Condamnation,Aix en provence,Marseille,42,15709,56,41184,22,30000,88,28/04/2010,955
+Condamnation,Aix en provence,Grasse,47,22344,49,49464,26,90000,88,06/01/2011,955
+Condamnation,Aix en provence,Nice,50,25560,52,45072,16,15000,88,26/02/2013,955
+Condamnation,Aix en provence,Aix en provence,54,9312,52,50947,20,10000,91,21/05/2013,955
+Condamnation,Aix en provence,Marseille,52,15468,62,43524,15,50000,88,05/11/2013,955
+Condamnation,Aix en provence,Toulon,42,29148,43,40548,16,30000,90,15/04/2014,955
+Condamnation,Aix en provence,Nice,35,15552,40,40000,17,25000,90,02/12/2014,955
+Condamnation,Aix en provence,Toulon,43,8616,53,44088,18,46200,93,09/12/2014,955
+Condamnation,Aix en provence,Nice,45,19460,45,41112,19,10000,96,25/11/2014,955
+Condamnation,Aix en provence,Toulon,48,15648,48,48099,17,19200,95,26/03/2015,955
+Condamnation,Aix en provence,Marseille,44,27288,44,48120,20,15000,94,03/11/2015,955
+Condamnation,Aix en provence,Digne les bains,45,18000,50,51000,11,30000,89,07/01/2016,955
+Condamnation,Aix en provence,Nice,57,14172,57,39924,15,50000,91,02/02/2016,955
+Condamnation,Aix en provence,Draguignan,46,13716,50,46704,24,50000,91,28/06/2016,955
+Condamnation,Versailles,Nanterre,47,10800,49,46340,17,35000,88,01/12/2016,955
+Condamnation,Limoges,Limoges,48,25507,47,45555,18,70000,88,18/01/2017,955
+Non Condamnation,Aix en provence,Toulon,45,31704,44,39672,16,0,90,20/06/2017,955
+Condamnation,Rennes,Dinan,64,8232,67,44376,42,101635,84,16/03/2010,3817
+Condamnation,Toulouse,Toulouse,60,10560,61,48000,37,60000,93,27/04/2010,3817
+Condamnation,Versailles,Versailles,65,25131,67,51756,41,120000,85,28/02/2011,3817
+Condamnation,Toulouse,Foix,69,17592,62,43981,32,12000,83,21/02/2012,3817
+Condamnation,Nancy,Verdun,66,2760,66,43680,43,90000,84,28/09/2012,3817
+Condamnation,Toulouse,Toulouse,59,10691,56,46000,22,25000,85,04/12/2012,3817
+Condamnation,Toulouse,Toulouse,53,5336,53,50400,30,100000,83,17/09/2013,3817
+Condamnation,Douai,Dunkerque,62,14184,63,52020,40,40000,84,06/02/2014,3817
+Condamnation,Toulouse,Toulouse,56,26050,58,50400,27,100000,86,25/03/2014,3817
+Condamnation,Toulouse,Toulouse,64,3504,66,41796,43,175514,93,25/03/2014,3817
+Condamnation,Aix en provence,Digne les bains,61,20400,63,49596,39,200000,84,04/12/2014,3817
+Condamnation,Toulouse,Toulouse,65,10380,70,46212,35,48000,92,18/12/2014,3817
+Condamnation,Toulouse,Toulouse,65,15600,66,35604,43,100000,84,19/03/2015,3817
+Condamnation,Douai,Boulogne sur mer,62,?,63,46435,41,124454,85,12/03/2015,3817
+Condamnation,Chambery,Thonon les bains,67,18996,69,51960,44,30000,86,09/11/2015,3817
+Condamnation,Colmar,Mulhouse,63,?,64,52708,43,251287,85,14/06/2016,3817
+Condamnation,Rennes,Brest,65,2784,68,45840,47,267291,85,16/01/2017,3817
+Condamnation,Grenoble,Valence,63,?,63,46372,39,200000,83,12/06/2017,3817
+Condamnation,Toulouse,Toulouse,57,13774,61,44025,30,25000,85,14/03/2017,3817
+Condamnation,Rennes,Quimper,63,13200,66,48576,42,168922,86,28/02/2017,3817

@@ -1,0 +1,114 @@
+<div class="table-chart-container">
+
+    <div class="arrow"></div>
+
+    <div id="bars-container">
+        <div id="left-bar-container">
+            <div id="left-bar"></div>
+        </div>
+    </div>
+
+    <div class="curly-brace">
+        <div class="brace brace-left"></div>
+        <div class="brace brace-right"></div>
+    </div>
+
+    <div class="curly-brace">
+        <div class="brace brace-left"></div>
+        <div class="brace brace-right"></div>
+    </div>
+
+</div>
+
+<style>
+    .table-chart-container {
+        position: relative;
+        width: 80%;
+        margin: 50% auto 0 auto
+    }
+    .arrow {
+        height: 2px;
+        width: 88%;
+        background-color: #000000;
+        position: relative;
+        margin: 0 auto 10px auto;
+    }
+
+    .arrow:before, .arrow:after {
+        content: '';
+        position: absolute;
+        top: 0;
+    }
+    .arrow:before {
+        left: 0;
+        transform: translate(-100%, -50%);
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        border-right:20px solid #000000;
+    }
+    .arrow:after {
+        right: 0;
+        transform: translate(100%, -50%);
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        border-left: 20px solid #000000;
+    }
+    #bars-container {
+        height: 40px;
+        width: 100%;
+    }
+    #left-bar-container {
+        height: 50%;
+        background-color: #ffea00;
+    }
+    #left-bar {
+        height: 100%;
+        width: 0;
+        background-color: #a94b00;
+    }
+    .curly-brace {
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        top: 34px;
+    }
+    .brace {
+        border-bottom: 2px solid;
+        margin: 0 10%;
+        width: 30%;
+        height: 20px;
+        float: left;
+    }
+    .brace:before, .brace:after {
+        content: "";
+        width: 10%;
+        height: 50px;
+        position: absolute;
+        display: block;
+    }
+    .brace-left:before {
+        border-bottom: 2px solid;
+        border-bottom-left-radius: 20px;
+        margin-left: -10%;
+        margin-top: -30px;
+    }
+    .brace-left:after {
+        border-top: 2px solid;
+        border-top-right-radius: 20px;
+        margin-left: 30%;
+        margin-top: 18px;
+    }
+    .brace-right:before {
+        border-top: 2px solid;
+        border-top-left-radius: 20px;
+        margin-left: -10%;
+        margin-top: 18px;
+    }
+    .brace-right:after {
+        border-bottom: 2px solid;
+        border-bottom-right-radius: 20px;
+        margin-left: 30%;
+        margin-top: -30px;
+    }
+</style>

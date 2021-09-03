@@ -1,0 +1,175 @@
+{{ block scripts }}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script>
+    function displayDataPointInfo(data_point) {
+        $('.highcharts-data-point-info').remove();
+        $('.highcharts-figure').append(data_point.table)
+    }
+
+    Highcharts.chart('container', {
+
+        chart: {
+            type: 'bubble',
+            plotBorderWidth: 1,
+            zoomType: 'xy',
+        },
+
+        credits: {
+            enabled: false,
+        },
+
+        title: {
+            text: js_vars.bubble_chart_title
+        },
+
+        legend: {
+            itemDistance: 200,
+            itemMarginTop: 18,
+            itemStyle: {
+                fontWeight: 'lighter',
+                MarginTop: 18
+            }
+        },
+
+        xAxis: {
+            gridLineWidth: 1,
+            type: 'datetime',
+            labels: {
+                formatter: function() {
+                    return Highcharts.dateFormat('%m/%Y', this.value);
+                }
+            },
+            accessibility: {
+                rangeDescription: 'Date Time'
+            }
+        },
+
+        yAxis: {
+            startOnTick: false,
+            endOnTick: false,
+            title: '',
+            labels: {
+                format: '{value}%'
+            },
+            accessibility: {
+                rangeDescription: 'Percentage: 0% to 100%.'
+            }
+        },
+
+        tooltip: {
+            useHTML: true,
+            headerFormat: '<table class="highcharts-tooltip-table">',
+            pointFormat: '<tr><td>{point.case_id}</td></tr>',
+            footerFormat: '</table>',
+            followPointer: false,
+            backgroundColor: 'rgb(255, 255, 255, 0.9)',
+            borderColor: '#e6e6e6',
+            padding: 6,
+            shadow: false,
+            distance: 24,
+            outside: true,
+            hideDelay: 200,
+            className: 'bubble-chart-tooltip'
+        },
+
+        plotOptions: {
+            series: {
+                cursor: 'pointer',
+                states: {
+                    hover: {
+                        halo: {
+                            size: 0
+                        }
+                    }
+                },
+                point: {
+                    events: {
+                        click: function () {
+                            displayDataPointInfo(this);
+                        }
+                    }
+                }
+            }
+        },
+
+        series: [{
+            name: js_vars.cases_series.condemnation.name,
+            data: js_vars.cases_series.condemnation.data,
+            color: 'rgb(125, 40, 36)',
+            marker: {
+                fillColor: 'rgb(125, 40, 36, 0.25)',
+                states: {
+                    hover: {
+                        fillColor: 'rgb(125, 40, 36, 1)'
+                    },
+                    select: {
+                        fillColor: 'rgb(125, 40, 36, 1)'
+                    }
+                }
+            },
+            animation: false
+        }, {
+            name: js_vars.cases_series.condemnation_no.name,
+            data: js_vars.cases_series.condemnation_no.data,
+            color: 'rgb(185, 148, 90)',
+            marker: {
+                fillColor: 'rgb(185, 148, 90, 0.25)',
+                states: {
+                    hover: {
+                        fillColor: 'rgb(185, 148, 90, 1)'
+                    },
+                    select: {
+                        fillColor: 'rgb(185, 148, 90, 1)'
+                    }
+                }
+            },
+            animation: false
+        }]
+    });
+</script>
+
+<script>
+    const x = new Date();
+    console.log(x.getMonth() + '/' + x.getFullYear());
+</script>
+
+{{ endblock }}
+
+{{ block styles }}
+<style>
+    #container {
+        height: 400px;
+    }
+
+    .highcharts-figure {
+        min-width: 310px;
+        max-width: 800px;
+        margin: 1em auto;
+    }
+
+    .highcharts-tooltip-table {
+        width: 120px;
+        text-align: center;
+    }
+
+    .color-amber {
+        color: rgb(185, 148, 90);
+    }
+</style>
+{{ endblock }}
+
+{{ block title }}
+    Bubble Chart
+{{ endblock }}
+{{ block content }}
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+</figure>
+
+{{ next_button }}
+
+{{ endblock }}
