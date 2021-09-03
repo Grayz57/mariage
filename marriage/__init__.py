@@ -66,7 +66,7 @@ def add_table_to_case(case: dict):
                     f'en date du <b class="color-amber">{case["Date"]}</b> présente ' \
                     f'<b class="color-amber">{case["Taux de correspondance"]}%</b> de correspondance ' \
                     f'avec votre requête.</p>' + \
-                    '<ul>' + \
+                    '<ul class="fs-smaller">' + \
                     ''.join(f'<li>{k}: {v}</li>' for k, v in case.items()
                             if k not in ['Taux de correspondance', 'Date', 'case_id', 'timestamp']) + \
                     '</ul>' + \

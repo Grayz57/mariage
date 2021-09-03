@@ -8,8 +8,16 @@
         $('.highcharts-data-point-info').remove();
         $('.highcharts-figure').append(data_point.table)
     }
+    
+    $(window).on('load', function () {
+        $(document).on('click', function (e) {
+            if(!e.target.closest('.highcharts-container')){
+                $('.highcharts-data-point-info').remove();
+            }
+        })
+    });
 
-    Highcharts.chart('container', {
+    Highcharts.chart('highcharts-container', {
 
         chart: {
             type: 'bubble',
@@ -44,7 +52,11 @@
             },
             accessibility: {
                 rangeDescription: 'Date Time'
-            }
+            },
+            lineColor: '#e6e6e6',
+            tickWidth: 1,
+            tickLength: 8,
+            tickColor: '#e6e6e6',
         },
 
         yAxis: {
@@ -56,7 +68,11 @@
             },
             accessibility: {
                 rangeDescription: 'Percentage: 0% to 100%.'
-            }
+            },
+            lineColor: '#e6e6e6',
+            tickWidth: 1,
+            tickLength: 10,
+            tickColor: '#e6e6e6',
         },
 
         tooltip: {
@@ -131,16 +147,11 @@
     });
 </script>
 
-<script>
-    const x = new Date();
-    console.log(x.getMonth() + '/' + x.getFullYear());
-</script>
-
 {{ endblock }}
 
 {{ block styles }}
 <style>
-    #container {
+    #highcharts-container {
         height: 400px;
     }
 
@@ -155,6 +166,10 @@
         text-align: center;
     }
 
+    .fs-smaller {
+        font-size: smaller;
+    }
+
     .color-amber {
         color: rgb(185, 148, 90);
     }
@@ -167,7 +182,7 @@
 {{ block content }}
 
 <figure class="highcharts-figure">
-    <div id="container"></div>
+    <div id="highcharts-container"></div>
 </figure>
 
 {{ next_button }}
